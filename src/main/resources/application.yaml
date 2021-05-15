@@ -1,0 +1,10 @@
+server:
+  port: 8090
+
+logging:
+  level:
+    root: info
+    java.sql: debug
+    org.springframework.web: trace
+
+
