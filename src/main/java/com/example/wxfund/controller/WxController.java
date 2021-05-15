@@ -30,7 +30,7 @@ public class WxController {
         return "";
     }
 
-    @PostMapping("/wx/exchange")
+    @PostMapping(value = "/wx/exchange", produces = "application/xml;charset=UTF-8")
     public Object reply(@RequestBody MessageEntity msg) {
         Logger logger= LoggerFactory.getLogger(WxFundApplication.class);
         logger.debug(msg.toString());
@@ -55,8 +55,10 @@ public class WxController {
         }
         return out;
     }
-    @GetMapping("/wx/hello")
+    @GetMapping(value = "/wx/hello",produces = "application/xml;charset=UTF-8")
     public Object hello(){
-        return "hello";
+        OutMsgEntity out = new OutMsgEntity();
+        out.setContent("hhhh");
+        return out;
     }
 }
