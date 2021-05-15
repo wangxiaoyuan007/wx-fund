@@ -1,9 +1,12 @@
 package com.example.wxfund.controller;
 
+import com.example.wxfund.WxFundApplication;
 import com.example.wxfund.entity.MessageEntity;
 import com.example.wxfund.entity.OutMsgEntity;
 import com.example.wxfund.service.FundService;
 import com.example.wxfund.util.SignUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -29,8 +32,8 @@ public class WxController {
 
     @PostMapping("/wx/exchange")
     public Object reply(@RequestBody MessageEntity msg) {
-        System.out.println("reply method -------------------");
-        System.out.println(msg.toString());
+        Logger logger= LoggerFactory.getLogger(WxFundApplication.class);
+        logger.debug(msg.toString());
         //创建消息响应对象
         OutMsgEntity out = new OutMsgEntity();
         //把原来的发送方设置为接收方
@@ -43,6 +46,7 @@ public class WxController {
         out.setMsgType(msgType);
         //设置消息创建时间
         out.setCreateTime(new Date().getTime());
+        logger.debug(out.toString());
         //根据类型设置不同的消息数据
         if("text".equals(msgType)){
             out.setContent(fundService.getFund());

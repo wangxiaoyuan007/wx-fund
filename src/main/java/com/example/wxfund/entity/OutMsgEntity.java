@@ -7,6 +7,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Arrays;
+
 @Setter
 @Getter
 @XmlRootElement(name="xml")
@@ -33,4 +35,16 @@ public class OutMsgEntity {
     private String[] MediaId ;
     // 文本内容
     private String Content;
+
+    @Override
+    public String toString() {
+        return "OutMsgEntity{" +
+                "FromUserName='" + FromUserName + '\'' +
+                ", ToUserName='" + ToUserName + '\'' +
+                ", CreateTime=" + CreateTime +
+                ", MsgType='" + MsgType + '\'' +
+                ", MediaId=" + Arrays.toString(MediaId) +
+                ", Content='" + Content + '\'' +
+                '}';
+    }
 }
