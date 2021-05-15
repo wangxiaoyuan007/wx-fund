@@ -29,6 +29,8 @@ public class WxController {
 
     @PostMapping("/wx/exchange")
     public Object reply(@RequestBody MessageEntity msg) {
+        System.out.println("reply method -------------------");
+        System.out.println(msg.toString());
         //创建消息响应对象
         OutMsgEntity out = new OutMsgEntity();
         //把原来的发送方设置为接收方
