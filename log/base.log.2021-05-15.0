@@ -1,0 +1,23 @@
+2021-05-15 13:51:48,574 DEBUG (WxFundApplication.java:15)- 我们是一个测试的
+2021-05-15 13:51:48,577 INFO (WxFundApplication.java:16)- 测试测试9999999999999999999999
+2021-05-15 13:51:49,126 INFO (StartupInfoLogger.java:55)- Starting WxFundApplication using Java 1.8.0_231 on LAPTOP-4PRE3EIE with PID 10988 (D:\project\java_project\wx-fund\target\classes started by wxy in D:\project\java_project\wx-fund)
+2021-05-15 13:51:49,126 DEBUG (StartupInfoLogger.java:56)- Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-05-15 13:51:49,127 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2021-05-15 13:51:50,520 INFO (StartupInfoLogger.java:61)- Started WxFundApplication in 1.841 seconds (JVM running for 2.602)
+2021-05-15 13:59:45,047 DEBUG (WxFundApplication.java:15)- 我们是一个测试的
+2021-05-15 13:59:45,049 INFO (WxFundApplication.java:16)- 测试测试9999999999999999999999
+2021-05-15 13:59:45,595 INFO (StartupInfoLogger.java:55)- Starting WxFundApplication using Java 1.8.0_231 on LAPTOP-4PRE3EIE with PID 13904 (D:\project\java_project\wx-fund\target\classes started by wxy in D:\project\java_project\wx-fund)
+2021-05-15 13:59:45,596 DEBUG (StartupInfoLogger.java:56)- Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-05-15 13:59:45,596 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2021-05-15 13:59:47,084 INFO (StartupInfoLogger.java:61)- Started WxFundApplication in 1.934 seconds (JVM running for 2.711)
+2021-05-15 14:10:05,498 DEBUG (WxFundApplication.java:15)- 我们是一个测试的
+2021-05-15 14:10:05,500 INFO (WxFundApplication.java:16)- 测试测试9999999999999999999999
+2021-05-15 14:10:06,237 INFO (StartupInfoLogger.java:55)- Starting WxFundApplication using Java 1.8.0_231 on LAPTOP-4PRE3EIE with PID 14100 (D:\project\java_project\wx-fund\target\classes started by wxy in D:\project\java_project\wx-fund)
+2021-05-15 14:10:06,239 DEBUG (StartupInfoLogger.java:56)- Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-05-15 14:10:06,241 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2021-05-15 14:10:52,396 DEBUG (WxFundApplication.java:15)- 我们是一个测试的
+2021-05-15 14:10:52,398 INFO (WxFundApplication.java:16)- 测试测试9999999999999999999999
+2021-05-15 14:10:52,931 INFO (StartupInfoLogger.java:55)- Starting WxFundApplication using Java 1.8.0_231 on LAPTOP-4PRE3EIE with PID 6552 (D:\project\java_project\wx-fund\target\classes started by wxy in D:\project\java_project\wx-fund)
+2021-05-15 14:10:52,932 DEBUG (StartupInfoLogger.java:56)- Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-05-15 14:10:52,933 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2021-05-15 14:10:54,409 INFO (StartupInfoLogger.java:61)- Started WxFundApplication in 1.917 seconds (JVM running for 2.689)
