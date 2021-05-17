@@ -57,8 +57,6 @@ public class WxController {
     }
     @GetMapping(value = "/wx/hello",produces = "application/xml;charset=UTF-8")
     public Object hello(){
-        OutMsgEntity out = new OutMsgEntity();
-        out.setContent("hhhh");
-        return out;
+        return fundService.getFund();
     }
 }
