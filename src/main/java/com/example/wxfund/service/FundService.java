@@ -17,7 +17,7 @@ public class FundService {
             String responseStr = HttpUtil.doGet(url);
             String resJson = responseStr.substring(8, responseStr.length() - 2);
             Fund fund = JSON.parseObject(resJson, Fund.class);
-            String funRes = String.format("基金名：%s, 净值增长：%s \n", fund.getGztime(), fund.getName(), fund.getGszzl());
+            String funRes = String.format("时间：%s,基金名：%s, 净值增长：%s \n", fund.getGztime(), fund.getName(), fund.getGszzl());
             res += funRes;
         }
         return res;
