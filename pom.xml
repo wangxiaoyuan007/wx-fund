@@ -55,6 +55,11 @@
             <version>1.2.75</version>
         </dependency>
         <dependency>
+            <groupId>com.my-cat-client</groupId>
+            <artifactId>cat-client</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>

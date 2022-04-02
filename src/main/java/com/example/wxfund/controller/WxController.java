@@ -1,5 +1,7 @@
 package com.example.wxfund.controller;
 
+import com.dianping.cat.Cat;
+import com.dianping.cat.CatConstants;
 import com.example.wxfund.WxFundApplication;
 import com.example.wxfund.entity.MessageEntity;
 import com.example.wxfund.entity.OutMsgEntity;
@@ -8,10 +10,13 @@ import com.example.wxfund.util.SignUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import sun.misc.MessageUtils;
-
+import com.dianping.cat.message.Transaction;
 import java.util.Date;
 
 @RestController
@@ -58,5 +63,21 @@ public class WxController {
     @GetMapping(value = "/wx/hello")
     public Object hello(){
         return fundService.getFund();
+    }
+
+    @GetMapping(value = "/wx/report")
+    public Object hello2(){
+        Transaction t = Cat.newTransaction(CatConstants.TYPE_REMOTE_CALL, "/wx/report");
+        try {
+
+            t.setStatus(Transaction.SUCCESS);
+            return "success";
+        } catch (Exception e) {
+            Cat.getProducer().logError(e);
+            t.setStatus(e);
+            throw e;
+        } finally {
+            t.complete();
+        }
     }
 }
