@@ -2,7 +2,11 @@ package com.example.wxfund.controller;
 
 import com.dianping.cat.Cat;
 import com.dianping.cat.CatConstants;
+import com.dianping.cat.message.Trace;
+import com.dianping.cat.message.spi.MessageTree;
 import com.example.wxfund.WxFundApplication;
+import com.example.wxfund.cathelper.CatContext;
+import com.example.wxfund.cathelper.CatHttpConstants;
 import com.example.wxfund.entity.MessageEntity;
 import com.example.wxfund.entity.OutMsgEntity;
 import com.example.wxfund.service.FundService;
@@ -17,6 +21,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import sun.misc.MessageUtils;
 import com.dianping.cat.message.Transaction;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
 @RestController
@@ -66,10 +73,21 @@ public class WxController {
     }
 
     @GetMapping(value = "/wx/report")
-    public Object hello2(){
+    public Object hello2(HttpServletRequest request, HttpServletResponse response){
+//        headers.add(CatHttpConstants.CAT_HTTP_HEADER_ROOT_MESSAGE_ID, ctx.getProperty(Cat.Context.ROOT));
+//        headers.add(CatHttpConstants.CAT_HTTP_HEADER_PARENT_MESSAGE_ID, ctx.getProperty(Cat.Context.PARENT));
+//        headers.add(CatHttpConstants.CAT_HTTP_HEADER_CHILD_MESSAGE_ID, ctx.getProperty(Cat.Context.CHILD));
         Transaction t = Cat.newTransaction(CatConstants.TYPE_REMOTE_CALL, "/wx/report");
         try {
-
+            System.out.println("start report");
+            CatContext ctx = new CatContext();
+            ctx.addProperty(Cat.Context.ROOT, "root");
+            ctx.addProperty(Cat.Context.PARENT, "PARENT");
+            ctx.addProperty(Cat.Context.CHILD, "CHILD");
+            Cat.logRemoteCallServer(ctx);
+            System.out.println(ctx.getProperty(Cat.Context.ROOT));
+            System.out.println(ctx.getProperty(Cat.Context.PARENT));
+            System.out.println(ctx.getProperty(Cat.Context.CHILD));
             t.setStatus(Transaction.SUCCESS);
             return "success";
         } catch (Exception e) {
@@ -77,6 +95,35 @@ public class WxController {
             t.setStatus(e);
             throw e;
         } finally {
+           // t2.complete();
+            t.complete();
+        }
+    }
+
+    @GetMapping(value = "/wx/report_client")
+    public Object hello3(HttpServletRequest request, HttpServletResponse response){
+        Transaction t = Cat.newTransaction(CatConstants.TYPE_REMOTE_CALL, "/wx/report_client");
+        try {
+            System.out.println("start report");
+            CatContext ctx = new CatContext();
+            ctx.addProperty(Cat.Context.ROOT, "root");
+            ctx.addProperty(Cat.Context.PARENT, "PARENT");
+            ctx.addProperty(Cat.Context.CHILD, "CHILD");
+            MessageTree tree =  Cat.getManager().getThreadLocalMessageTree();
+            tree.setRootMessageId("root");
+            tree.setMessageId("parent");
+            Cat.logRemoteCallClient(ctx);
+            System.out.println(ctx.getProperty(Cat.Context.ROOT));
+            System.out.println(ctx.getProperty(Cat.Context.PARENT));
+            System.out.println(ctx.getProperty(Cat.Context.CHILD));
+            t.setStatus(Transaction.SUCCESS);
+            return "success";
+        } catch (Exception e) {
+            Cat.getProducer().logError(e);
+            t.setStatus(e);
+            throw e;
+        } finally {
+            // t2.complete();
             t.complete();
         }
     }

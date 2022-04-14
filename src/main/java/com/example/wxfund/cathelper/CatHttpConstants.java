@@ -1,4 +1,4 @@
-package io.spring2go.cathelper;
+package com.example.wxfund.cathelper;
 
 public class CatHttpConstants {
 	public static final String CAT_HTTP_HEADER_CHILD_MESSAGE_ID = "X-CAT-CHILD-ID";

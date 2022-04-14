@@ -1,9 +1,9 @@
-package io.spring2go.cathelper;
+package com.example.wxfund.cathelper;
+
+import com.dianping.cat.Cat;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import com.dianping.cat.Cat;
 
 public class CatContext implements Cat.Context {
 
